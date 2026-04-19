@@ -1,1 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>DiabetesGuard — Early Risk Warning System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
 
+<!-- ══ NAV ══ -->
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-logo">
+      <div class="nav-logo-icon">
+        <svg width="16" height="16" viewBox="0 0 28 28" fill="none">
+          <path d="M14 2C14 2 4 8.5 4 16a10 10 0 0020 0C24 8.5 14 2 14 2z" fill="white"/>
+          <path d="M11 16h6M14 13v6" stroke="var(--red)" stroke-width="2.2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <span>DiabetesGuard</span>
+    </div>
+    <div class="nav-links">
+      <a href="#home"   class="nav-link active">Overview</a>
+      <a href="#assess" class="nav-link">Assessment</a>
+      <a href="#result" class="nav-link">Results</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section id="home" class="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        
+      </div>
+      <h1 class="hero-title">
+        Diabetes Risk<br/>
+        <em>Assessment</em> System
+      </h1>
+      <p class="hero-sub">
+        An AI-powered clinical screening tool using CDC BRFSS 2015 data.
+        Our Random Forest model analyses 21 lifestyle and health indicators
+        to generate a personalised risk profile — and a clear path to improve it.
+      </p>
+      <div class="hero-cta-row">
+        <a href="#assess" class="btn btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+          Begin Assessment
+        </a>
+      </div>
+      <div class="hero-stat-row">
+        <div class="hero-stat">
+          <span class="stat-val">86%+</span>
+          <span class="stat-label">Model Accuracy</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="hero-stat">
+          <span class="stat-val">253k</span>
+          <span class="stat-label">Training Records</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="hero-stat">
+          <span class="stat-val">21</span>
+          <span class="stat-label">Health Features</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-card-col">
+      <div class="hero-risk-card">
+        <div class="hero-card-top">
+          <span class="hero-card-label">Risk Score Preview</span>
+          <span class="hero-card-model-tag">Random Forest</span>
+        </div>
+        <div class="risk-dial-wrap">
+          <svg class="risk-dial" viewBox="0 0 160 100" width="190">
+            <path d="M20 90 A60 60 0 0 1 140 90" fill="none" stroke="#f0f0f0" stroke-width="10" stroke-linecap="round"/>
+            <path id="dial-arc" d="M20 90 A60 60 0 0 1 140 90" fill="none" stroke="url(#dialGrad)" stroke-width="10" stroke-linecap="round" stroke-dasharray="188" stroke-dashoffset="141"/>
+            <defs>
+              <linearGradient id="dialGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%"   stop-color="#22c55e"/>
+                <stop offset="50%"  stop-color="#f59e0b"/>
+                <stop offset="100%" stop-color="#ef4444"/>
+              </linearGradient>
+            </defs>
+            <text x="80" y="86" text-anchor="middle" font-size="24" font-weight="700" fill="#111827" font-family="Sora, sans-serif">--</text>
+            <text x="80" y="98" text-anchor="middle" font-size="6.5" fill="#9ca3af" font-family="Sora, sans-serif" letter-spacing="1">RISK SCORE</text>
+          </svg>
+        </div>
+        <p class="hero-card-hint">Complete the form below to generate your score</p>
+        <div class="legend-row">
+          <div class="legend-item"><span class="legend-dot green"></span><span>Low</span></div>
+          <div class="legend-item"><span class="legend-dot orange"></span><span>Medium</span></div>
+          <div class="legend-item"><span class="legend-dot red"></span><span>High</span></div>
+        </div>
+      </div>
+
+      <div class="hero-info-chips">
+        <div class="info-chip">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+          Data never stored
+        </div>
+        <div class="info-chip">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          ~2 min to complete
+        </div>
+        <div class="info-chip">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          Wearable compatible
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ASSESSMENT FORM ══ -->
+<section id="assess" class="assess">
+  <div class="assess-inner">
+
+    <div class="section-header">
+      <div class="section-eyebrow">Clinical Assessment</div>
+      <h2>Health Questionnaire</h2>
+      <p>Answer each question based on your current health status. All processing is local.</p>
+    </div>
+
+    <!-- Step progress indicator -->
+    <div class="step-progress">
+      <div class="step-item active" data-step="1">
+        <div class="step-circle">1</div>
+        <span>Medical</span>
+      </div>
+      <div class="step-connector"></div>
+      <div class="step-item" data-step="2">
+        <div class="step-circle">2</div>
+        <span>Lifestyle</span>
+      </div>
+      <div class="step-connector"></div>
+      <div class="step-item" data-step="3">
+        <div class="step-circle">3</div>
+        <span>Physical</span>
+      </div>
+      <div class="step-connector"></div>
+      <div class="step-item" data-step="4">
+        <div class="step-circle">4</div>
+        <span>Demographics</span>
+      </div>
+    </div>
+
+    <!-- Wearable toggle card -->
+    <div class="wearable-toggle-card">
+      <div class="wearable-icon-wrap">
+        <svg width="18" height="18" viewBox="0 0 32 32" fill="none">
+          <rect x="10" y="4" width="12" height="24" rx="3" stroke="var(--red)" stroke-width="2"/>
+          <rect x="13" y="8" width="6" height="10" rx="1" fill="var(--red)" opacity=".25"/>
+          <path d="M13 22h6" stroke="var(--red)" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M4 12h6M22 12h6" stroke="var(--red)" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="wearable-text">
+        <strong>Wearable Integration</strong>
+        <p>Connect Fitbit / smartwatch data for a hybrid prediction model</p>
+      </div>
+      <label class="toggle-switch">
+        <input type="checkbox" id="wearableToggle" onchange="toggleWearable()"/>
+        <span class="toggle-slider"></span>
+      </label>
+    </div>
+
+    <!-- Wearable inputs -->
+    <div id="wearableSection" class="wearable-section hidden">
+      <div class="wearable-section-header">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        Wearable Sensor Data
+      </div>
+      <div class="form-grid-4">
+        <div class="form-group">
+          <label class="field-label">Daily Steps</label>
+          <input type="number" id="w_steps" placeholder="e.g. 8000" min="0" max="50000" class="field-input"/>
+          <small class="field-hint">Average steps / day</small>
+        </div>
+        <div class="form-group">
+          <label class="field-label">Resting Heart Rate <span class="field-unit">bpm</span></label>
+          <input type="number" id="w_hr" placeholder="e.g. 72" min="40" max="150" class="field-input"/>
+          <small class="field-hint">Average resting HR</small>
+        </div>
+        <div class="form-group">
+          <label class="field-label">Sleep <span class="field-unit">hrs/night</span></label>
+          <input type="number" id="w_sleep" placeholder="e.g. 7.0" min="2" max="12" step="0.5" class="field-input"/>
+          <small class="field-hint">Average nightly sleep</small>
+        </div>
+        <div class="form-group">
+          <label class="field-label">Active Calories <span class="field-unit">kcal/day</span></label>
+          <input type="number" id="w_cal" placeholder="e.g. 500" min="0" max="3000" class="field-input"/>
+          <small class="field-hint">Calories burned</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- FORM -->
+    <form id="assessForm" onsubmit="submitForm(event)">
+
+      <!-- Section A: Medical Conditions -->
+      <div class="form-card" id="section-1">
+        <div class="form-card-header">
+          <div class="form-card-icon-wrap">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </div>
+          <div>
+            <h3>Medical Conditions</h3>
+            <p>Clinically diagnosed conditions relevant to diabetes risk</p>
+          </div>
+          <span class="card-step-badge">Step 1</span>
+        </div>
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="field-label">High Blood Pressure?</label>
+            <div class="yn-row">
+              <label class="yn-opt"><input type="radio" name="HighBP" value="1"/> <span>Yes</span></label>
+              <label class="yn-opt"><input type="radio" name="HighBP" value="0" checked/> <span>No</span></label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="field-label">High Cholesterol?</label>
+            <div class="yn-row">
+              <label class="yn-opt"><input type="radio" name="HighChol" value="1"/> <span>Yes</span></label>
+              <label class="yn-opt"><input type="radio" name="HighChol" value="0" checked/> <span>No</span></label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="field-label">Cholesterol checked in last 5 years?</label>
+            <div class="yn-row">
+              <label class="yn-opt"><input type="radio" name="CholCheck" value="1" checked/> <span>Yes</span></label>
+              <label class="yn-opt"><input type="radio" name="CholCheck" value="0"/> <span>No</span></label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="field-label">History of Stroke?</label>
+            <div class="yn-row">
+              <label class="yn-opt"><input type="radio" name="Stroke" value="1"/> <span>Yes</span></label>
+              <label class="yn-opt"><input type="radio" name="Stroke" value="0" checked/> <span>No</span></label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="field-label">Heart Disease or Attack?</label>
+            <div class="yn-row">
+              <label class="yn-opt"><input type="radio" name="HeartDiseaseorAttack" value="1"/> <span>Yes</span></label>
+              <label class="yn-opt"><input type="radio" name="HeartDiseaseorAttack" value="0" checked/> <span>No</span></label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="field-label">Difficulty Walking / Climbing Stairs?</label>
+            <div class="yn-row">
+              <label class="yn-opt"><input type="radio" name="DiffWalk" value="1"/> <span>Yes</span></label>
+              <label class="yn-opt"><input type="radio" name="DiffWalk" value="0" checked/> <span>No</span></label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section B: Lifestyle -->
+      <div class="form-card" id="section-2">
+        <div class="form-card-header">
+          <div class="form-card-icon-wrap green-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          </div>
+          <div>
+            <h3>Lifestyle Habits</h3>
+            <p>Daily behaviours and habits that influence metabolic health</p>
+          </div>
+          <span class="card-step-badge">Step 2</span>
+        </div>
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="field-label">Physically Active in last 30 days?</label>
+            <div class="yn-row">
+              <label class="yn-opt"><input type="radio" name="PhysActivity" value="1" checked/> <span>Yes</span></label>
+              <label class="yn-opt"><input type="radio" name="PhysActivity" value="0"/> <span>No</span></label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="field-label">Daily Fruit Consumption?</label>
+            <div class="yn-row">
+              <label class="yn-opt"><input type="radio" name="Fruits" value="1" checked/> <span>Yes</span></label>
+              <label class="yn-opt"><input type="radio" name="Fruits" value="0"/> <span>No</span></label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="field-label">Daily Vegetable Consumption?</label>
+            <div class="yn-row">
+              <label class="yn-opt"><input type="radio" name="Veggies" value="1" checked/> <span>Yes</span></label>
+              <label class="yn-opt"><input type="radio" name="Veggies" value="0"/> <span>No</span></label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="field-label">Heavy Alcohol Consumption?</label>
+            <div class="yn-row">
+              <label class="yn-opt"><input type="radio" name="HvyAlcoholConsump" value="1"/> <span>Yes</span></label>
+              <label class="yn-opt"><input type="radio" name="HvyAlcoholConsump" value="0" checked/> <span>No</span></label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="field-label">Have you ever smoked ≥100 cigarettes?</label>
+            <div class="yn-row">
+              <label class="yn-opt"><input type="radio" name="Smoker" value="1"/> <span>Yes</span></label>
+              <label class="yn-opt"><input type="radio" name="Smoker" value="0" checked/> <span>No</span></label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section C: Physical Metrics -->
+      <div class="form-card" id="section-3">
+        <div class="form-card-header">
+          <div class="form-card-icon-wrap orange-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <div>
+            <h3>Physical Metrics</h3>
+            <p>Biometric and self-reported health measurements</p>
+          </div>
+          <span class="card-step-badge">Step 3</span>
+        </div>
+        <div class="form-grid">
+
+          <!-- BMI slider -->
+          <div class="form-group full-width">
+            <label class="field-label">
+              Body Mass Index (BMI)
+              <span class="bmi-display" id="bmiVal">27.0</span>
+            </label>
+            <input type="hidden" id="bmiHidden" name="BMI" value="27.0"/>
+            <div class="slider-wrap">
+              <input type="range" min="10" max="60" step="0.5" value="27" class="bmi-slider"
+                     oninput="updateBMI(this.value)"/>
+              <div class="slider-labels">
+                <span>Underweight &lt;18.5</span>
+                <span>Normal 18.5–24.9</span>
+                <span>Overweight 25–29.9</span>
+                <span>Obese ≥30</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- General Health -->
+          <div class="form-group full-width">
+            <label class="field-label">General Health (Self-rated)</label>
+            <input type="hidden" id="GenHlthHidden" name="GenHlth" value="3"/>
+            <div class="seg-control">
+              <button type="button" class="seg-btn" onclick="setSeg('GenHlth',1,this)">Excellent</button>
+              <button type="button" class="seg-btn" onclick="setSeg('GenHlth',2,this)">Very Good</button>
+              <button type="button" class="seg-btn active" onclick="setSeg('GenHlth',3,this)">Good</button>
+              <button type="button" class="seg-btn" onclick="setSeg('GenHlth',4,this)">Fair</button>
+              <button type="button" class="seg-btn" onclick="setSeg('GenHlth',5,this)">Poor</button>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="field-label">
+              Physical Health Issues
+              <span class="field-unit">days / last 30</span>
+            </label>
+            <input type="number" name="PhysHlth" value="0" min="0" max="30" class="field-input num-input"/>
+            <small class="field-hint">Days physical health was not good</small>
+          </div>
+
+          <div class="form-group">
+            <label class="field-label">
+              Mental Health Issues
+              <span class="field-unit">days / last 30</span>
+            </label>
+            <input type="number" name="MentHlth" value="0" min="0" max="30" class="field-input num-input"/>
+            <small class="field-hint">Days mental health was not good</small>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Section D: Demographics -->
+      <div class="form-card" id="section-4">
+        <div class="form-card-header">
+          <div class="form-card-icon-wrap blue-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
+          <div>
+            <h3>Demographics &amp; Access</h3>
+            <p>Social determinants and healthcare access factors</p>
+          </div>
+          <span class="card-step-badge">Step 4</span>
+        </div>
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="field-label">Health Insurance / Plan?</label>
+            <div class="yn-row">
+              <label class="yn-opt"><input type="radio" name="AnyHealthcare" value="1" checked/> <span>Yes</span></label>
+              <label class="yn-opt"><input type="radio" name="AnyHealthcare" value="0"/> <span>No</span></label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="field-label">Avoided Doctor Due to Cost?</label>
+            <div class="yn-row">
+              <label class="yn-opt"><input type="radio" name="NoDocbcCost" value="1"/> <span>Yes</span></label>
+              <label class="yn-opt"><input type="radio" name="NoDocbcCost" value="0" checked/> <span>No</span></label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="field-label">Biological Sex</label>
+            <div class="yn-row">
+              <label class="yn-opt"><input type="radio" name="Sex" value="0" checked/> <span>Female</span></label>
+              <label class="yn-opt"><input type="radio" name="Sex" value="1"/> <span>Male</span></label>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="field-label">Age Group</label>
+            <select name="Age" class="field-input select-input">
+              <option value="1">18–24</option>
+              <option value="2">25–29</option>
+              <option value="3">30–34</option>
+              <option value="4">35–39</option>
+              <option value="5">40–44</option>
+              <option value="6">45–49</option>
+              <option value="7">50–54</option>
+              <option value="8" selected>55–59</option>
+              <option value="9">60–64</option>
+              <option value="10">65–69</option>
+              <option value="11">70–74</option>
+              <option value="12">75–79</option>
+              <option value="13">80+</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="field-label">Education Level</label>
+            <select name="Education" class="field-input select-input">
+              <option value="1">No School / Kindergarten</option>
+              <option value="2">Elementary</option>
+              <option value="3">Some High School</option>
+              <option value="4">High School Graduate</option>
+              <option value="5" selected>Some College</option>
+              <option value="6">College Graduate</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="field-label">Annual Household Income</label>
+            <select name="Income" class="field-input select-input">
+              <option value="1">&lt; $10,000</option>
+              <option value="2">$10,000 – $15,000</option>
+              <option value="3">$15,000 – $20,000</option>
+              <option value="4">$20,000 – $25,000</option>
+              <option value="5" selected>$25,000 – $35,000</option>
+              <option value="6">$35,000 – $50,000</option>
+              <option value="7">$50,000 – $75,000</option>
+              <option value="8">&gt; $75,000</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Submit -->
+      <div class="submit-row">
+        <div class="submit-hint">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+          Data is processed locally and never stored
+        </div>
+        <button type="submit" class="btn btn-primary btn-submit" id="submitBtn">
+          <span id="submitText">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
+            Calculate Risk Score
+          </span>
+          <span id="submitLoader" class="loader hidden"></span>
+        </button>
+      </div>
+
+    </form>
+  </div>
+</section>
+
+<!-- ══ RESULTS ══ -->
+<section id="result" class="results hidden">
+  <div class="results-inner">
+
+    <div class="section-header">
+      <div class="section-eyebrow">Analysis Complete</div>
+      <h2>Your Risk Report</h2>
+      <p>Generated by Random Forest model trained on CDC BRFSS 2015 dataset</p>
+    </div>
+
+    <!-- Score hero panel -->
+    <div class="result-hero">
+
+      <div class="score-ring-col">
+        <div class="score-ring-wrap">
+          <svg viewBox="0 0 200 200" width="190" height="190" class="score-ring">
+            <circle cx="100" cy="100" r="80" fill="none" stroke="#f3f4f6" stroke-width="14"/>
+            <circle id="scoreCircle" cx="100" cy="100" r="80" fill="none"
+                    stroke="var(--red)" stroke-width="14"
+                    stroke-linecap="round"
+                    stroke-dasharray="502" stroke-dashoffset="502"
+                    transform="rotate(-90 100 100)"
+                    style="transition: stroke-dashoffset 1.2s cubic-bezier(.4,0,.2,1), stroke .4s;"/>
+          </svg>
+          <div class="score-inner-text">
+            <span id="scoreNum" class="score-num">--</span>
+            <span class="score-denom">/ 100</span>
+            <span id="scoreCat" class="score-cat">Analysing…</span>
+          </div>
+        </div>
+        <div class="score-legend">
+          <span><span class="dot green-dot"></span>0–29 Low</span>
+          <span><span class="dot orange-dot"></span>30–59 Med</span>
+          <span><span class="dot red-dot"></span>60+ High</span>
+        </div>
+      </div>
+
+      <div class="result-divider"></div>
+
+      <div class="prob-col">
+        <div class="prob-header">
+          <h4>Model Output Probabilities</h4>
+          <span class="prob-tag">3-class classification</span>
+        </div>
+        <div class="prob-bar-item">
+          <div class="prob-bar-label">
+            <span class="dot green-dot"></span>
+            <span>No Diabetes</span>
+          </div>
+          <div class="prob-track-wrap">
+            <div class="prob-bar-track"><div class="prob-bar-fill green-fill" id="pb0"></div></div>
+            <span id="pt0" class="prob-pct">--%</span>
+          </div>
+        </div>
+        <div class="prob-bar-item">
+          <div class="prob-bar-label">
+            <span class="dot orange-dot"></span>
+            <span>Pre-Diabetes</span>
+          </div>
+          <div class="prob-track-wrap">
+            <div class="prob-bar-track"><div class="prob-bar-fill orange-fill" id="pb1"></div></div>
+            <span id="pt1" class="prob-pct">--%</span>
+          </div>
+        </div>
+        <div class="prob-bar-item">
+          <div class="prob-bar-label">
+            <span class="dot red-dot"></span>
+            <span>Diabetes</span>
+          </div>
+          <div class="prob-track-wrap">
+            <div class="prob-bar-track"><div class="prob-bar-fill red-fill" id="pb2"></div></div>
+            <span id="pt2" class="prob-pct">--%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Advice banner -->
+    <div id="adviceBanner" class="advice-banner"></div>
+
+    <!-- Feature importance + Simulation -->
+    <div class="result-grid">
+      <div class="result-card">
+        <div class="result-card-head">
+          <h3>Top Risk Factors</h3>
+          <span class="card-tag blue-tag">AI Insights</span>
+        </div>
+        <p class="card-sub">Key features driving your prediction</p>
+        <div id="featureImportance" class="feat-list">
+          <div class="feat-loading">
+            <div class="loading-dots"><span></span><span></span><span></span></div>
+            Loading feature importance…
+          </div>
+        </div>
+      </div>
+
+      <div class="result-card">
+        <div class="result-card-head">
+          <h3>Improvement Roadmap</h3>
+          <span class="card-tag green-tag">Simulation</span>
+        </div>
+        <p class="card-sub">Projected risk score at each improvement stage</p>
+        <div id="simChart" class="sim-chart"></div>
+      </div>
+    </div>
+
+    <!-- Disclaimer -->
+    <div class="disclaimer">
+      <div class="disclaimer-icon">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+      </div>
+      <div>
+        <strong>Medical Disclaimer</strong>
+        This tool is for educational and screening purposes only and does not constitute medical advice, diagnosis, or treatment. Always consult a qualified healthcare professional.
+      </div>
+    </div>
+
+    <div class="results-footer">
+      <button class="btn btn-secondary" onclick="resetForm()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+        Reassess
+      </button>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="nav-logo">
+      <div class="nav-logo-icon">
+        <svg width="14" height="14" viewBox="0 0 28 28" fill="none">
+          <path d="M14 2C14 2 4 8.5 4 16a10 10 0 0020 0C24 8.5 14 2 14 2z" fill="white"/>
+          <path d="M11 16h6M14 13v6" stroke="var(--red)" stroke-width="2.2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <span>DiabetesGuard</span>
+    </div>
+    
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
